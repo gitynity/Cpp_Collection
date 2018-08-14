@@ -1,1 +1,11 @@
-This is a collection of famous basic type c/c++ programmes.
+This is a collection of basic c/c++ programmes.Some of them are tricky and provide with more than just basic concepts.
+These were helpful to me in the process of learning basics of the language. I hope they are helpful for anyone who studies them.
+Topics Covered:
+*Sorting
+*Structures
+*Unions
+*If-else
+*Arrays
+*Strings
+*Pointers
+*Undefined behaviour  etc...
