@@ -7,13 +7,11 @@ while(s[i]!='\0' && t[i]!='\0')
 {
 	if(t[i]-s[i]<=0)
 		{
-			break;
 			return -1;
 		}	
 	
 	else if(t[i]-s[i]!=diff)
 		{
-			break;
 			return -1;
 		}
 	
