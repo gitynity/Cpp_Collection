@@ -20,3 +20,4 @@ int main()
 
 
 //setw() can be understood as SetWidth. It first sets a width for writing. Then starts writing from right by default.
+//After every endl operator , setw() becomes inactive i.e from new line everything is printed normally. 
