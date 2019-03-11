@@ -1,0 +1,27 @@
+C++ is not pure object oriented programming language because a C++ programme can be written without use of any classes.
+
+However....
+
+Java is a pure object oriented programming language because a java programme can not be written without use of classes.
+
+==========================
+Polymorphism-----------> Overloading & Binding
+
+Overloading --->Function Overloading & Operator Overloading
+
+Binding---->Static binding & Dynamic Binding
+
+==========================
+In C , functions are not allowed inside structures.
+In C++, functions are allowed inside structures.
+
+But in both C and C++ structures , the data members are easily accessible by anyone throughout  the program.
+
+Classes introduced data hiding in C++.
+
+Object is a variable of type (some)class.
+
+C++ Structure members are private , public and protected.
+But by default members are public.
+Also structures cannot be inherrited , classes can be inherrited.
+==========================
