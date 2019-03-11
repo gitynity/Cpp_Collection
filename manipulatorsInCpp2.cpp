@@ -1,5 +1,8 @@
+//setfill only works with setw() function.
 //setfill('*') fills the remaining empty fields in setw() statements by *.
 //setfill('*') will remain active until end of the program.
+//to stop it from filling in * in setw() statements , use cout<<setfill(' ');
+
 
 #include <iomanip>
 #include <iostream>
