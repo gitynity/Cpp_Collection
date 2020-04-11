@@ -38,6 +38,11 @@ int main() {
 
 /*
 
+Maximum integer value for a char is: 127
+Maximum integer value for an unsigned char is: 255
+Minimum integer value for a char is: -128
+Minimum integer value for an unsigned char is: 0
+
 Maximum value for a short is: 32767
 Maximum value for an unsigned short is: 65535
 Minimum value for a short is: -32768
