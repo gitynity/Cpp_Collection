@@ -4,6 +4,12 @@ using namespace std;
 
 int main() {
 	
+	cout<<"Maximum integer value for a char is: "<<CHAR_MAX<<endl;
+	cout<<"Maximum integer value for an unsigned char is: "<<UCHAR_MAX<<endl;
+	cout<<"Minimum integer value for a char is: "<<CHAR_MIN<<endl;
+	cout<<"Minimum integer value for an unsigned char is: "<<0<<endl<<endl;
+	
+	
 	cout<<"Maximum value for a short is: "<<SHRT_MAX<<endl;
 	cout<<"Maximum value for an unsigned short is: "<<USHRT_MAX<<endl;
 	cout<<"Minimum value for a short is: "<<SHRT_MIN<<endl;
