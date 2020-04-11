@@ -44,5 +44,13 @@ int main()
 	
 	cout<<namaste<<endl;
 	
+	
+	//There is also one other getline() that you might have seen somewhere.
+	//That is "cin.getline()".
+	//Dont use this one for taking strings as input , because this function was written before
+	//string class was implemented.So it is not suitable for inputing strings.
+	// You can however use it for ints, doubles etc . It works fine for them.
+	
+	
 	return 0;
 }
