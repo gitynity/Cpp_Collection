@@ -23,3 +23,4 @@ double area(Rectangle r)
 {
 	return r.length*r.width;
 }
+
