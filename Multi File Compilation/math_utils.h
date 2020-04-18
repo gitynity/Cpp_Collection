@@ -1,26 +1,20 @@
-#include "math_utils.h"
-#include <iostream>
+#ifndef MATH_UTILS
+#define MATH_UTILS
 
-
-using namespace std;
-
-int main()
+struct Rectangle
 {
-	Rectangle r1;
-	r1.length = 5;
-	r1.width = 2;
+	double length;
+	double width;
+};
 
-	Rectangle sq;
-	sq.length = 10;
-	sq.width = 10;
-	
-	cout<<area(r1)<<endl;
-	
-	cout<<area(sq)<<endl;
 
-	cout<<area(9)<<endl;
 
-	cout<<area(10,3)<<endl;
+double area(double length);
 
-	return 0;
-}
+double area(Rectangle r);
+
+double pow(double base , int pow = 2 );
+
+double area(double length , double width);
+
+#endif
