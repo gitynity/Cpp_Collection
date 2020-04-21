@@ -1,0 +1,85 @@
+Overloaded operator << for ostream syntax
+stackoverflow.com/questions/9471180/overloaded-operator-for-ostream-syntax
+
+Question:
+***************************************************************************************************************************
+I have been going over some old HomeWork assignments from a class last semester. This was a given print function to 
+print out linked-list objects. I don't understand why the overloaded operator takes two parameters and one being an os object.
+When we were printing out actual linked list objects on main.cpp, we didn't need to pass an os object. Also, why is it
+returning os? Why can't we just use cout instead of "os <<" ?
+Thank you!
+
+**Code**
+##########################################################
+template <class T>
+void List<T>::print(ostream & os) const
+{
+  os << "<";
+  ListNode * curr = head;
+  while (curr != NULL) {
+  os << " " << curr->data;
+  curr = curr->next;
+}
+os << " >";
+}
+
+// overloaded operator <<
+template <class T>
+ostream & operator<<(ostream & os, const List<T> & list)
+{
+  list.print(os);
+  return os;
+}
+##########################################################
+
+
+***************************************************************************************************************************
+
+
+Answer:
+***************************************************************************************************************************
+By the way the question was asked and how basic it is, I'm going to try to give a very simplistic
+(albeit rather informal and not so pedantic) answer.
+
+***I DON'T UNDERSTAND WHY THE OVERLOADED OPERATOR TAKES TWO PARAMETERS AND ONE BEING AN os object***
+
+      operator<< is a binary operator. It has a left-hand side and a right-hand side. 
+      When you write:  cout << 123;
+      You are invoking this operator with two operands (arguments): 'cout' on the left and an
+      integer, '123', on the right.
+
+***WHEN WE WERE PRINTING OUT ACTUAL LINKED LIST OBJECTS ON MAIN.CPP, WE DIDN'T NEED TO PASS AN os object.***
+
+      Your print function is a member function or operator of a class. That would implicitly
+      deduce that the first argument, crudely speaking, does not need to be explicitly passed
+      since you already have the 'this' pointer to work with for your list object. That's not the
+      case with non-member operators as you don't have an implicitly deduced 'this' object to
+      work with already for the left-hand side operand.
+
+      When you write code like this:  my_list.print(cout);
+      You can think of it as actually passing in two arguments, 'my_list' and 'cout'. 
+      Even though you don't write it explicitly, you have access to 'my_list' through 'this' along with its
+      members.That's not the case if you wrote the print function as a non-member, like so:
+
+      template <class T>
+      void print(const List<T>& my_list, ostream& os);
+
+      That's also the case with your operator which is not a member function.
+
+***ALSO, WHY IS IT RETURNING os?***
+
+      Returning a reference to ostream is what allows us to write statements like this: cout << "hello " << "world";
+      First we invoke operator<<(cout, "hello ") which then gives us another ostream reference to work with 
+      which then allows us to proceed to invoke operator<<(cout, "world"). If it returned void, for example,
+      it would not allow us to invoke that operator twice in one statement since we'd be trying to output "world " 
+      with void as the left-hand operand.
+
+***Why can't we just use cout instead of "os <<" ?***
+
+      cout basically implements the ostream interface. So does ofstream, ostringstream, and other types of output streams.
+      By writing it in terms of the basic interface required and not some specific ostream derivative, you allow the code
+      you write to work with stdio streams, file streams, stream streams, and others. Basically it makes your code very
+      general and reusable which is something you should strive to do when practical. You'll learn about this subject more 
+      as you tackle the concept of polymorphism.
+      
+***************************************************************************************************************************     
