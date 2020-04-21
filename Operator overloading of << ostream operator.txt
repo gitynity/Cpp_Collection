@@ -45,8 +45,8 @@ By the way the question was asked and how basic it is, I'm going to try to give 
 
       operator<< is a binary operator. It has a left-hand side and a right-hand side. 
       When you write:  cout << 123;
-      You are invoking this operator with two operands (arguments): 'cout' on the left and an
-      integer, '123', on the right.
+      You are invoking this operator with two operands (arguments): 'cout' on the left and and
+      integer, '123', on the right.(Also note that both operands are of different types)
 
 ***WHEN WE WERE PRINTING OUT ACTUAL LINKED LIST OBJECTS ON MAIN.CPP, WE DIDN'T NEED TO PASS AN os object.***
 
