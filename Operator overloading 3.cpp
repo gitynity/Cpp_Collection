@@ -44,6 +44,7 @@ class Point
 
 };
 
+
 /*
 
 << and >> must be overloaded as a global function.
