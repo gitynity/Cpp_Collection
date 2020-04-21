@@ -64,7 +64,6 @@ Therefore, these operators are overloaded as global functions with two parameter
  
 */
 
-
 	std::ostream& operator << (std::ostream& output , Point &p)
 	{
 			output<<p.x<<","<<p.y;	//object of ostream will receive p.x and p.y using << operator
