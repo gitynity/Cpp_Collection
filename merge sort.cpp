@@ -34,14 +34,14 @@ void mergesort(int *a , int l , int r)
         int m = l + (r-l)/2;
         mergesort(a,0,m);
         mergesort(a,m+1,r);
-        mergethesortedsubarrays(a,l,m,r-1); 
+        mergethesortedsubarrays(a,l,m,r); 
     }
 }
 
 int main()
 {
     int arr[] = {2,7,4,1,5,3,9};
-    mergesort(arr,0,7);   
+    mergesort(arr,0,6);   
     for (int i = 0; i < 7; i++)
         cout << arr[i] << " ";
 }
