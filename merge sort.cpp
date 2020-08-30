@@ -1,30 +1,42 @@
 #include <iostream>
 using namespace std;
 
-int c[100];
-
-
 void mergethesortedsubarrays(int *a, int l , int m , int r)
 {
-    int i = l , j = m+1 ;
-    int k = l;    
-    while(i<=m and j<=r)
+    int n1 = m - l + 1;
+    int n2 = r - m;
+
+    int left[n1], right[n2];
+
+    for (int i = l; i <= m; i++)
+        left[i] = a[i];
+
+    for (int j = m + 1; j <= r; j++)
+        right[j] = a[j];
+
+    int i = 0, j = 0;
+    int k = l;
+
+    while (i < n1 and j < n2)
     {
-        if(a[i]<a[j])
-            c[k++] = a[i++] ;
-        
-        else
-            c[k++] = a[j++] ;
+        if (left[i] < right[j])
+        {
+            a[k++] = left[i++];
+        }
+        else if (left[i] > right[j])
+        {
+            a[k++] = right[j++];
+        }
     }
-    while(i<=m)
-        c[k++] = a[i++];
 
-    while(j<=r)
-        c[k++] = a[j++];
-
-    for(int i=l;i<=r;i++)
-        a[i] = c[i];
-
+    while (i < n1)
+    {
+        a[k++] = left[i++];
+    }
+    while (j < n2)
+    {
+        a[k++] = right[j++];
+    }
 }
 
 void mergesort(int *a , int l , int r)
