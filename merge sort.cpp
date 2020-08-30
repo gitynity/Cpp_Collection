@@ -1,72 +1,47 @@
-#include<bits/stdc++.h>
-
+#include <iostream>
 using namespace std;
 
-void merge(int*a , int s , int l)
+int c[100];
+
+
+void mergethesortedsubarrays(int *a, int l , int m , int r)
 {
-	auto mid = (s + l) / 2;
-	int i = s;	//points at start of a
-	int j = mid + 1;	//points at mid+1 of a
-	int k = s;	//points at start of a temporary array
+    int i = l , j = m+1 ;
+    int k = l;    
+    while(i<=m and j<=r)
+    {
+        if(a[i]<a[j])
+            c[k++] = a[i++] ;
+        
+        else
+            c[k++] = a[j++] ;
+    }
+    while(i<=m)
+        c[k++] = a[i++];
 
-	int temp[100];
+    while(j<=r)
+        c[k++] = a[j++];
 
-	while (i <= mid && j <= l)
-	{
-		if (a[i] < a[j])
-		{
-			temp[k++] = a[i++];
-		}
-		else
-			temp[k++] = a[j++];
-	}
+    for(int i=l;i<=r;i++)
+        a[i] = c[i];
 
-	while (i <= mid)
-		temp[k++] = a[i++];
-	while (j <= l)
-		temp[k++] = a[j++];
-
-	for (i = s; i <= l; i++)
-	{
-		a[i] = temp[i];
-	}
 }
 
-void mergesort(int*a , int s ,  int l)
+void mergesort(int *a , int l , int r)
 {
-	//Base case
-	if (s >= l)
-		return;		//we are not returning anything. we just ended function and cameback to the calling point
-	//Follow 3 steps
-
-	//1.Divide
-	auto mid  = (s + l) / 2;
-
-	//recursively the array as (s , mid) and (mid+1 , l)
-	mergesort(a, s, mid);
-	mergesort(a, mid + 1, l);
-
-	//Merge the two parts
-	merge(a, s, l);
-
+    if(r >  l)
+    {
+        int m = l + (r-l)/2;
+        mergesort(a,0,m);
+        mergesort(a,m+1,r);
+        mergethesortedsubarrays(a,l,m,r-1); 
+    }
 }
 
 int main()
-{	//If there is an online judge then the input is taken from it and output is given to it
-#ifndef ONLINE_JUDGE		//This code only runs if there is no online judge
-	//You can change the name of files here to change input ouptut files
-	{	\
-		freopen("input.txt", "r", stdin);	\
-		freopen("ouput.txt", "w", stdout);	\
-	}
-#endif
-
-	int a[10];
-	for (auto i = 0; i < 10; i++)
-		cin >> a[i];
-
-	mergesort(a, 0, 9);
-
-	for (auto i : a)
-		cout << i << " ";
+{
+    int arr[] = {2,7,4,1,5,3,9};
+    mergesort(arr,0,7);   
+    for (int i = 0; i < 7; i++)
+        cout << arr[i] << " ";
 }
