@@ -12,11 +12,11 @@ void merge_count(int *a, int l, int m, int r)
 
     int left[n1], right[n2];
 
-    for (int i = l; i <= m; i++)
-        left[i] = a[i];
+    for (int i = 0; i < n1; i++)
+        left[i] = a[i+l];
 
-    for (int j = m + 1; j <= r; j++)
-        right[j] = a[j];
+    for (int j = 0 j < n2; j++)
+        right[j] = a[j+m+1];
 
     int i = 0, j = 0, k = l;
 
