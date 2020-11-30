@@ -23,12 +23,5 @@ Pointer Declaration
 
 Data_type * pointer_variable_name;
 
-If data_type has a prefix 'const' Then data_type is of constant.
-Example: const int *ptr;
-Also..
-"int const * ptr" is the same thing as "const int * ptr" which means it is a pointer to a constant int
-
-
-If pointer_variable_name has prefix 'const'. Then pointer is of type constant.
-Example: int * const ptr3;
+Read right to left for pointers and references
 */
